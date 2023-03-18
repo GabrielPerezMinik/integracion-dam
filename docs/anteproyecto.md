@@ -21,7 +21,7 @@ Programa de Escritorio capaz de Generar Correos masivos con el potencial de decl
 
 *Si el proyecto trata sobre la adaptación o ampliación de algún software existente, se deberá aportar información sobre el mismo (documentos electrónicos, direcciones URL, etc.), delimitando claramente cuál será el trabajo que se realizará y que funcionalidad ya está implementada.*
 
-Debera generar un texto y/o recibirlo para adaptarse, se podra definir las variables a cambiar y el lugar de ellas 
+Debera generar un texto y/o recibirlo para adaptarse, se podra definir las variables a cambiar y el lugar de ellas.
 
 > *Incuir los diagramas necesarios*
 
@@ -34,3 +34,5 @@ Debera generar un texto y/o recibirlo para adaptarse, se podra definir las varia
 ## ESTIMACIÓN DE COSTES
 
 *[TODO] Estimar el coste que representará la creación del proyecto. Esta estimación será temporal y/o económica si procede (costes de contratación de servicios en la nube, por ejemplo).*
+
+[Link de Excel con la estimacion de costes](https://docs.google.com/spreadsheets/d/1i0Bney0Ny30iprYfUE-wggS2xa3r-seL/edit?usp=sharing&ouid=105140303933329321542&rtpof=true&sd=true)
