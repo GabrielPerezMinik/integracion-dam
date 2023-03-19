@@ -4,10 +4,6 @@
 
 ## OBJETIVOS
 
-*[TODO] Se indicará de forma genérica y sin entrar en concreciones el objetivo
-que se pretende alcanzar al realizar el proyecto. Se indicará igualmente donde
-será utilizado el proyecto obtenido.*
-
 Programa de Escritorio capaz de Generar Correos masivos con el potencial de declarar variables para modificar el grado de aguante varias modificaciones con el fin de flexibilizar la appliacion y darle mas polivalencia
 
 
@@ -39,7 +35,7 @@ Importar fuente de datos: Selecciona un archivo que sirva como fuente de datos (
 Generar correos: Selecciona el destino en donde se crearán los correos acordes con al texto pasado y la fuente de datos proporcionados. Una vez seleccionado, se enviaran los correos.
 Salir de la aplicación: El usuario sale de la aplicación.
 
-(imagen Diagrama1)
+![image](https://github.com/GabrielPerezMinik/integracion-dam/blob/main/docs/Caso%20de%20uso.png)
 
 
 > *Incuir los diagramas necesarios*
@@ -85,6 +81,7 @@ Desventajas:
 
 El diagrama de flujo de datos de este proyecto no solo corresponde a la aplicación, sino a cómo se gestiona en parte el el documento y la fuente de datos que maneja, ya que ambos aspectos están relacionados directamente. Los diagramas de flujos de datos entonces quedarían de esta manera:
 
+![image](https://github.com/GabrielPerezMinik/integracion-dam/blob/main/docs/Diagrama1.PNG)
 
 ## ESTIMACIÓN DE COSTES
 
