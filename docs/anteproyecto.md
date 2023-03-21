@@ -4,7 +4,7 @@
 
 ## OBJETIVOS
 
-Programa de Escritorio capaz de Generar Correos masivos con el potencial de declarar variables para modificar el grado de aguante varias modificaciones con el fin de flexibilizar la appliacion y darle mas polivalencia
+Programa de escritorio capaz de generar correos masivos con el potencial de declarar variables para modificar el grado de aguante varias modificaciones con el fin de flexibilizar la aplicación y darle más polivalencia.
 
 
 ## PREANALISIS DE LO EXISTENTE (Opcional)
@@ -85,4 +85,4 @@ El diagrama de flujo de datos de este proyecto no solo corresponde a la aplicaci
 
 ## ESTIMACIÓN DE COSTES
 
-[Link de Excel con la estimacion de costes](https://docs.google.com/spreadsheets/d/1i0Bney0Ny30iprYfUE-wggS2xa3r-seL/edit?usp=sharing&ouid=105140303933329321542&rtpof=true&sd=true)
+[Link de Excel con la estimacion de costes](https://docs.google.com/spreadsheets/d/1Rd3qjHD5qf6JAjjsU7hJKEydYYYr9Js45sEC2GkVuS0/edit?usp=sharing)
