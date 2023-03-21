@@ -23,7 +23,7 @@ Trabajar con variables personalizadas para la gestión de los parámetros que la
 Permitir al usuario manejar todas las diferentes acciones que la aplicación ofrece.
 
 ## Casos de uso
-Se desarrollarán los casos de uso de la appliacion y sus requisitos funcionales para expresarlos desde el punto de vista del usuario, los cuales guiarán todo el proceso de desarrollo de la apliacion.
+Se desarrollarán los casos de uso de la aplicación y sus requisitos funcionales para expresarlos desde el punto de vista del usuario, los cuales guiarán todo el proceso de desarrollo de la aplicación.
 
 Estos casos de uso proporcionarán, por tanto, un modo claro y preciso de comunicación entre usuario y desarrollador.
 El sistema que se describe en este caso de uso es el siguiente: Un usuario interactúa con el programa y selecciona una fuente de datos y un texto con parámetros introducidos manualmente. Una vez generados los correos, los parámetros serán reemplazados por las variables de la fuente de datos.
@@ -42,7 +42,7 @@ Salir de la aplicación: El usuario sale de la aplicación.
 
 ## DISEÑO DEL SOFTWARE
 
-Las librerías que utilizará el software serán las librerías de javafx y Spring, lo que me permitira tener más facilidad a la hora de programar el codigo.
+Las librerías que utilizará el software serán las librerías de javafx y Spring, lo que me permitirá tener más facilidad a la hora de programar el código.
 
 La Api de Google Gmail y outlook en primera Instancia.
 
@@ -55,12 +55,12 @@ Los motivos por los que he elegido este método de desarrollo para esta aplicaci
 
 El modelo incremental se diferencia por dividir sus tareas en iteraciones, trabajando objetivos en pequeños tramos específicos. Estas iteraciones permiten una fácil administración y están sujetas a cambios y modificaciones según las necesidades que puedan ir surgiendo.
 
-Desde el punto de vista del usuario final: El ciclo de vida elegido ofrece la posibilidad de gestionar la aplicación de una manera menos rigida y mas sujeta a las necesidades que vayan surgiendo para este.
+Desde el punto de vista del usuario final: El ciclo de vida elegido ofrece la posibilidad de gestionar la aplicación de una manera menos rígida y más sujeta a las necesidades que vayan surgiendo para este.
 Desde el punto de vista del Programador: Ofrece la posibilidad de irse centrando en aquellas tareas que se necesite y ajustarla a las necesidades y complicaciones que puedan ir surgiendo.
 
 Por el tipo de aplicación: Permite descentralizar los diferentes tipos de api, interfaces y programas de una manera más eficiente.
 
-Por la facilidad de uso: Gracias a que el desarrollo incremental es caracterizado por dividir tareas las etapas del ciclo de vida de software, permite adaptarse segun el programa avance a la hora de desarrollar el programa en todos sus aspectos.
+Por la facilidad de uso: Gracias a que el desarrollo incremental es caracterizado por dividir tareas las etapas del ciclo de vida de software, permite adaptarse según el programa avance a la hora de desarrollar el programa en todos sus aspectos.
 
 Ventajas:
 1.Es fácil para el desglose de las tareas debido a que se utilizó divide y vencerás.
@@ -85,4 +85,4 @@ El diagrama de flujo de datos de este proyecto no solo corresponde a la aplicaci
 
 ## ESTIMACIÓN DE COSTES
 
-[Link de Excel con la estimacion de costes](https://docs.google.com/spreadsheets/d/1Rd3qjHD5qf6JAjjsU7hJKEydYYYr9Js45sEC2GkVuS0/edit?usp=sharing)
+[Link de hoja de cálculo con la estimación de costes](https://docs.google.com/spreadsheets/d/1Rd3qjHD5qf6JAjjsU7hJKEydYYYr9Js45sEC2GkVuS0/edit?usp=sharing)
