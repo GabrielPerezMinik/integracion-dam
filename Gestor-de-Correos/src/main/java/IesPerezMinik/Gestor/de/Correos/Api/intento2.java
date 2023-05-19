@@ -19,7 +19,8 @@ public class intento2 {
 //        final String password = "wp:J2ewJu-X7H2F";
         
         final String username = "gabrielc2profe@gmail.com";
-        final String password = "Palkia8400*"; 
+      
+
         final String recipientEmail = "gabrielc2profe@gmail.com";
 
         // Configurar propiedades del servidor SMTP
