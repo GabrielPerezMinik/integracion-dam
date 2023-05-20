@@ -1,0 +1,18 @@
+.dark-mode ,
+.dark-mode .container,
+.dark-mode .title,
+.dark-mode .text-field,
+.dark-mode .password-field,
+.dark-mode .button {
+    -fx-background-color: #222;
+    -fx-text-fill: #fff;
+}
+
+.dark-mode .text-field,
+.dark-mode .password-field {
+    -fx-background-color: #444;
+}
+
+.dark-mode .button {
+    -fx-background-color: #333;
+}

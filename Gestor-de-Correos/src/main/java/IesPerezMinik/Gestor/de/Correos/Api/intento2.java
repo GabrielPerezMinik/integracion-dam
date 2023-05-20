@@ -15,13 +15,7 @@ import javax.mail.internet.MimeMessage;
 public class intento2 {
 
     public static void main(String[] args) {
-//        final String username = "pruebas1232023@outlook.es";
-//        final String password = "wp:J2ewJu-X7H2F";
-        
-        final String username = "gabrielc2profe@gmail.com";
-      
 
-        final String recipientEmail = "gabrielc2profe@gmail.com";
 
         // Configurar propiedades del servidor SMTP
         Properties props = new Properties();
@@ -33,7 +27,7 @@ public class intento2 {
         
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp-relay.gmail.com");
+        props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
         
 

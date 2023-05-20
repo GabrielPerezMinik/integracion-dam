@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.HyperlinkLabel?>
+
+<BorderPane fx:id="Vista" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="Avatar" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Pictures/Login.png" />
+               </image></ImageView>
+            <TextField fx:id="CorreoField" />
+            <PasswordField fx:id="PasswordField" />
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" text="Iniciar Sesión" />
+                  <HBox alignment="CENTER" prefWidth="200.0" />
+                  <HyperlinkLabel text="Olvidaste tu contraseña? Pincha aquí  " />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Registrarse" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
