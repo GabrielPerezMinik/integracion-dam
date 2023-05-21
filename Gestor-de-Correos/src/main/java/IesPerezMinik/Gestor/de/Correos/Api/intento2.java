@@ -17,6 +17,11 @@ public class intento2 {
     public static void main(String[] args) {
 
 
+    	String username="";
+    	String password="";
+    	String recipientEmail="";
+    	
+    	
         // Configurar propiedades del servidor SMTP
         Properties props = new Properties();
 //        props.put("mail.smtp.auth", "true");

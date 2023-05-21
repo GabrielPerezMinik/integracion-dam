@@ -8,11 +8,11 @@ import javafx.stage.Stage;
 public class appVista extends Application{
 
 		public static Stage primaryStage;
-		private Controller2 control;
+		private Controller control;
 
 		@Override
 		public void start(Stage primaryStage) throws Exception {
-			control = new Controller2();
+			control = new Controller();
 			appVista.primaryStage=primaryStage;
 			primaryStage.setTitle("Enviar Email");
 			primaryStage.setScene(new Scene(control.getVista()));
@@ -26,4 +26,3 @@ public class appVista extends Application{
 		}
 		
 	}
-
