@@ -1,4 +1,4 @@
-package IesPerezMinik.Gestor.de.Correos;
+package IesPerezMinik.Gestor.de.Correos.ControllerInterfaz;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,7 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class Controller implements Initializable{
+public class Controller1 implements Initializable{
 
 	    @FXML
 	    private PasswordField passwordField;
@@ -40,7 +40,7 @@ public class Controller implements Initializable{
 	        }
 	    }
 	    
-	    public Controller() throws IOException {
+	    public Controller1() throws IOException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Login2.fxml"));
 			loader.setController(this);
 			loader.load();

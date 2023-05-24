@@ -8,6 +8,9 @@ public class GestorDeCorreosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestorDeCorreosApplication.class, args);
+		
+		appVista.main(args);
+		
 	}
 
 }

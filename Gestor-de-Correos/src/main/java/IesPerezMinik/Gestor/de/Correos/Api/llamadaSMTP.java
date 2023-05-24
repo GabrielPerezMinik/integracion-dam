@@ -12,30 +12,51 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class intento2 {
-
-    public static void main(String[] args) {
+public class llamadaSMTP {
 
 
     	String username="";
     	String password="";
     	String recipientEmail="";
     	
+    	// Configurar propiedades del servidor SMTP
     	
-        // Configurar propiedades del servidor SMTP
+    	public Properties smtpMicrosoft() {
+        
         Properties props = new Properties();
-//        props.put("mail.smtp.auth", "true");
-//        props.put("mail.smtp.starttls.enable", "true");
-//        props.put("mail.smtp.host", "smtp.office365.com");
-//        props.put("mail.smtp.port", "587");
-        
-        
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.host", "smtp.office365.com");
         props.put("mail.smtp.port", "587");
+		return props;
+    	}
         
-
+    	
+    	public Properties smtpGmail() {
+            
+            Properties props = new Properties();
+          
+          props.put("mail.smtp.auth", "true");
+          props.put("mail.smtp.starttls.enable", "true");
+          props.put("mail.smtp.host", "smtp.gmail.com");
+          props.put("mail.smtp.port", "587");
+            
+    		return props;
+        	}
+       
+    	
+    	public Properties smtpYahoo() {
+            
+            Properties props = new Properties();
+          props.put("mail.smtp.auth", "true");
+          props.put("mail.smtp.starttls.enable", "true");
+          props.put("mail.smtp.host", "smtp.mail.yahoo.com");
+          props.put("mail.smtp.port", "587");
+    		return props;
+        	}
+       
+        public void EnviarMensaje(Properties props) {
+        
         // Crear sesión de correo electrónico
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -59,6 +80,7 @@ public class intento2 {
         } catch (MessagingException e) {
             System.out.println("Error al enviar el correo electrónico: " + e.getMessage());
         }
-    }
+        }
+    
 }
 

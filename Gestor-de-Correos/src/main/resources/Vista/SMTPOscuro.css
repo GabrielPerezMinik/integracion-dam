@@ -1,0 +1,49 @@
+.modoOscuro,
+.modoOscuro .vistaSMTP {
+    -fx-background-color: #333333;
+}
+
+.modoOscuro .Label {
+    -fx-text-fill: #000000;
+}
+
+.modoOscuro .CheckBox,
+.modoOscuro .Button {
+    -fx-text-fill: #000000;
+    -fx-background-color: #555555;
+}
+
+.modoOscuro .CheckBox:selected,
+.modoOscuro .Button:default {
+    -fx-background-color: #aaaaaa;
+}
+
+.modoOscuro .TextField,
+.modoOscuro .PasswordField,
+.modoOscuro .TextArea {
+    -fx-text-fill: #000000;
+    -fx-background-color: #555555;
+}
+
+.modoOscuro .TextArea {
+    -fx-control-inner-background: #555555;
+}
+
+.modoOscuro .Slider {
+    -fx-control-inner-background: #555555;
+    -fx-accent: #ffffff;
+}
+
+.modoOscuro .TextField,
+.modoOscuro .Label {
+    -fx-text-fill: #ffffff;
+}
+
+.modoOscuro .TextField:focused {
+    -fx-background-color: #000000;
+}
+
+.modoOscuro .Label {
+    -fx-background-color: #ffffff;
+}
+

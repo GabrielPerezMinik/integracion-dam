@@ -6,6 +6,5 @@ public class Lanzador {
 		appVista.main(args);
 
 	}
-
 	
 }

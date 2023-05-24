@@ -18,11 +18,12 @@ public class CartasController {
 	CartaService cartaservice;
 	
 	
-	@GetMapping("/ver")
-	public ResponseEntity<?> VerCartas(){
+//	@GetMapping("/ver")
+//	public ResponseEntity<?> VerCartas(){
+//		
+//		return new ResponseEntity<?>(cartaservice.findall(),HttpStatusCode.OK);
 		
-		return new ResponseEntity<?>(cartaservice.findall(),HttpStatusCode.OK);
+//	}
 		
-	}
 	
 }

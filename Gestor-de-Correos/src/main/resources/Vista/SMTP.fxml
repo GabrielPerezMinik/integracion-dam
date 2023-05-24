@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="vistaSMTP" stylesheets="@/Vista/SMTPOscuro.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" />
+    <ColumnConstraints hgrow="SOMETIMES" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+  </rowConstraints>
+   <children>
+      <Label text="Servidor SMTP:" GridPane.rowIndex="3" />
+      <Label text="Usar conexión starttls:" GridPane.rowIndex="2" />
+      <Label text="Elije el servicio:" GridPane.rowIndex="1" />
+      <Label text="Remitente (From):" GridPane.rowIndex="4" />
+      <Label text="Destinatario (to):" GridPane.rowIndex="5" />
+      <Label text="Asunto (subject):" GridPane.rowIndex="6" />
+      <Label text="Cuerpo:" GridPane.rowIndex="7" />
+      <CheckBox fx:id="checkMicro" mnemonicParsing="false" onAction="#onCheckOu" text="Outlook/Hotmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <CheckBox fx:id="checkGmail" mnemonicParsing="false" onAction="#onCheckGma" text="Gmail" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <CheckBox fx:id="checkYahoo" mnemonicParsing="false" onAction="#onCheckYaho" text="Yahoo" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+      <CheckBox fx:id="checkStartlls" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="textServidor" promptText="Nombre o IP del servidor" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+      <TextField fx:id="textPuerto" promptText="Introduce el Puerto" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <TextField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <Button fx:id="enviarButton" defaultButton="true" mnemonicParsing="false" text="Enviar" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+      <Button fx:id="vaciarButton" mnemonicParsing="false" text="Vaciar" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+      <Button fx:id="salirButton" mnemonicParsing="false" text="Salir" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+      <TextArea fx:id="textCuerpo" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="7">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </TextArea>
+      <Slider fx:id="modoOscuro" blockIncrement="100.0" majorTickUnit="100.0" max="1.0" minorTickCount="1" GridPane.columnIndex="4" />
+      <PasswordField fx:id="contrasenaSmtp" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <TextField fx:id="textDestinatario" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+      <TextField fx:id="textAsunto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+      <HBox alignment="TOP_RIGHT" GridPane.columnIndex="3">
+         <children>
+            <Label fx:id="labelModo" alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Modo claro:">
+               <font>
+                  <Font name="Rubik Bold Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</GridPane>
