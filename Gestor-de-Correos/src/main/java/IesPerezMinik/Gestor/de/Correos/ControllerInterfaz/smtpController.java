@@ -218,14 +218,14 @@ public class smtpController implements Initializable {
     	}
     	
     	if(selectorTema.getValue()=="Escuela") {
-//    		String[] nombres = textDestinatario.getText().split(",");
-//            
-//    	       
-//            for (String nombre : nombres) {
-//                System.out.println(nombre);
-//                textCuerpo.setText(GeneradorCuerpo.Corporativo(nombre,textRemitente.getText());
-//            }
-    		System.out.println("Elegido escuela");
+    		String[] nombres = textDestinatario.getText().split(",");
+            
+    	       
+            for (String nombre : nombres) {
+                System.out.println(nombre);
+                textCuerpo.setText(GeneradorCuerpo.Escuela(nombre,textRemitente.getText()));
+            }
+    		//textCuerpo.setText(GeneradorCuerpo.Escuela(nombre,textRemitente.getText()));
     	}
     	
     	

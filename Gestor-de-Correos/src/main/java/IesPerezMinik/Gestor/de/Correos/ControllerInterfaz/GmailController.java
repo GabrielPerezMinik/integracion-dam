@@ -19,10 +19,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Slider;
@@ -119,9 +122,6 @@ public class GmailController implements Initializable {
 
 		});
 
-		// Obtener el valor inicial del Slider
-//		double valorModoOscuro = modoOscuro.getValue();
-
 	}
 
 	void modoOscuroOn(double x) {
@@ -129,11 +129,9 @@ public class GmailController implements Initializable {
 		if (x == 1) {
 			labelModo.setText("Modo Oscuro:");
 			vistaGmail.getStyleClass().add("modoOscuro");
-			//vistaSMTP.getStyleClass().remove("vistaSMTP");
 		} else {
 			labelModo.setText("Modo Claro:");
 			vistaGmail.getStyleClass().remove("modoOscuro");
-			//vistaSMTP.getStyleClass().add("vistaSMTP");
 		}
 	}
 
@@ -142,8 +140,23 @@ public class GmailController implements Initializable {
 
     	try {
 			new GMailer().sendMail(textAsunto.getText(), textCuerpo.getText(), textRemitente.getText(), new ArrayList<>());
+			
+			Alert alertCon = new Alert(AlertType.CONFIRMATION);
+			alertCon.initOwner(appVista.primaryStage);
+			alertCon.setHeaderText("Mensaje enviado con éxito a '"+  textDestinatario.getText()  +"'.");
+			alertCon.setGraphic(new ImageView(new Image("/images/okV2.png")));
+			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
+			alertCon.show();
+			
 		} catch (Exception e) {
+			
 			e.printStackTrace();
+			Alert alertErr = new Alert(AlertType.ERROR);
+			alertErr.initOwner(appVista.primaryStage);
+			alertErr.setHeaderText("No se pudo enviar el email.");
+			alertErr.setContentText("Complete todos los campos");
+			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
+			alertErr.show();
 		}
     	
     }
