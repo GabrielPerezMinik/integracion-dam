@@ -22,6 +22,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
@@ -38,7 +40,7 @@ public class GMailer {
         NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
         GsonFactory jsonFactory = GsonFactory.getDefaultInstance();
         service = new Gmail.Builder(httpTransport, jsonFactory, getCredentials(httpTransport, jsonFactory))
-                .setApplicationName("Test Mailer")
+                .setApplicationName("GestorCorreos")
                 .build();
     }
 
@@ -56,11 +58,11 @@ public class GMailer {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    public void sendMail(String subject, String message) throws Exception {
+    public void sendMail(String subject, String message, String emailSender, List<String> emailreciver) throws Exception {
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
-        email.setFrom(new InternetAddress(TEST_EMAIL));
+        email.setFrom(new InternetAddress(emailSender));
         email.addRecipient(TO, new InternetAddress(TEST_EMAIL));
         email.setSubject(subject);
         email.setText(message);
@@ -87,14 +89,10 @@ public class GMailer {
     }
 
     public static void main(String[] args) throws Exception {
-        new GMailer().sendMail("A new message", """
-                Dear reader,
-                                
-                Hello world.
-                                
-                Best regards,
-                myself
-                """);
+    	
+    	List<String> recibidores= new ArrayList<>();
+    	
+        new GMailer().sendMail("A new message", "","",recibidores);
     }
 
 }

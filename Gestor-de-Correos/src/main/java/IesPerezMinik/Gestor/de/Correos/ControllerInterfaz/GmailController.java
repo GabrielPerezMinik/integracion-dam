@@ -2,6 +2,7 @@ package IesPerezMinik.Gestor.de.Correos.ControllerInterfaz;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -9,6 +10,7 @@ import java.util.ResourceBundle;
 import IesPerezMinik.Gestor.de.Correos.appVista;
 import IesPerezMinik.Gestor.de.Correos.Api.GeneradorCuerpo;
 import IesPerezMinik.Gestor.de.Correos.Api.llamadaSMTP;
+import IesPerezMinik.Gestor.de.Correos.Controller.GMailer;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
@@ -138,6 +140,12 @@ public class GmailController implements Initializable {
     @FXML
     void onEnviar(ActionEvent event) {
 
+    	try {
+			new GMailer().sendMail(textAsunto.getText(), textCuerpo.getText(), textRemitente.getText(), new ArrayList<>());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
     }
 
     @FXML
