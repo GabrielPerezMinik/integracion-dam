@@ -14,7 +14,7 @@ public class RootController implements Initializable {
 
 	
 	private smtpController smtpController= new smtpController();
-	
+	private GmailController gmailController= new GmailController();
 
     @FXML
     private Tab gmailVista;
@@ -38,11 +38,27 @@ public class RootController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		smtpVista.setContent(smtpController.getVistaSMTP());
-		gmailVista.setContent(null);
+		gmailVista.setContent(gmailController.getVistaGmail());
 	}
 
 	public TabPane getVistaLogo() {
 		return vistaLogo;
+	}
+
+	public Tab getGmailVista() {
+		return gmailVista;
+	}
+
+	public void setGmailVista(Tab gmailVista) {
+		this.gmailVista = gmailVista;
+	}
+
+	public Tab getSmtpVista() {
+		return smtpVista;
+	}
+
+	public void setSmtpVista(Tab smtpVista) {
+		this.smtpVista = smtpVista;
 	}
 	
 	

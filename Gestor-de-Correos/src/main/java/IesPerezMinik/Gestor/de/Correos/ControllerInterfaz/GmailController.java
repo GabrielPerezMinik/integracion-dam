@@ -28,13 +28,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-public class smtpController implements Initializable {
+public class GmailController implements Initializable {
 
 	llamadaSMTP SMTP = new llamadaSMTP();
 
 	Properties pro = null;
-	
-	RootController root;
 	
 	@FXML
 	private CheckBox checkGmail;
@@ -87,11 +85,12 @@ public class smtpController implements Initializable {
 	@FXML
 	private Button vaciarButton;
 
-	@FXML
-	private GridPane vistaSMTP;
+	 @FXML
+	 private GridPane vistaGmail;
 
-	public smtpController() throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/SMTP.fxml"));
+
+	public GmailController() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Gmail.fxml"));
 		loader.setController(this);
 		loader.load();
 	}
@@ -118,76 +117,23 @@ public class smtpController implements Initializable {
 
 		});
 
+		// Obtener el valor inicial del Slider
+//		double valorModoOscuro = modoOscuro.getValue();
 
 	}
 
-	String css = this.getClass().getResource("/vista/SMTPOscuro.css").toString();
-	
 	void modoOscuroOn(double x) {
 
-		try {
-			root= new RootController();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
 		if (x == 1) {
 			labelModo.setText("Modo Oscuro:");
-			vistaSMTP.getStyleClass().add("modoOscuro");
+			vistaGmail.getStyleClass().add("modoOscuro");
+			//vistaSMTP.getStyleClass().remove("vistaSMTP");
 		} else {
 			labelModo.setText("Modo Claro:");
-			vistaSMTP.getStyleClass().remove("modoOscuro");
-			
+			vistaGmail.getStyleClass().remove("modoOscuro");
+			//vistaSMTP.getStyleClass().add("vistaSMTP");
 		}
 	}
-
-	@FXML
-	void onCheckGma(ActionEvent event) {
-
-		automatizacion(checkGmail, 'g');
-
-	}
-
-	@FXML
-	void onCheckOu(ActionEvent event) {
-
-		automatizacion(checkMicro, 'o');
-
-	}
-
-	@FXML
-	void onCheckYaho(ActionEvent event) {
-
-		automatizacion(checkYahoo, 'y');
-
-	}
-
-	private void automatizacion(CheckBox check, char v) {
-
-		
-		if (v == 'g') {
-			pro = SMTP.smtpGmail();
-		}
-
-		if (v == 'o') {
-			pro = SMTP.smtpMicrosoft();
-		}
-		if (v == 'y') {
-			pro = SMTP.smtpYahoo();
-		}
-
-		if (check.isSelected()) {
-
-			textPuerto.setText(pro.getProperty("mail.smtp.port"));
-			textServidor.setText(pro.getProperty("mail.smtp.host"));
-			checkStartlls.setSelected(pro.getProperty("mail.smtp.starttls.enable").contains("true"));
-		} else {
-			textPuerto.setText("");
-			textServidor.setText("");
-			checkStartlls.setSelected(false);
-		}
-	}
-
 
     @FXML
     void onEnviar(ActionEvent event) {
@@ -266,8 +212,8 @@ public class smtpController implements Initializable {
     	
     }
 
-    public GridPane getVistaSMTP() {
-		return vistaSMTP;
+    public GridPane getVistaGmail() {
+		return vistaGmail;
 	}
 	
 }

@@ -1,4 +1,4 @@
-package IesPerezMinik.Gestor.de.Correos.Api;
+package IesPerezMinik.Gestor.de.Correos.afuturo;
 
 import com.microsoft.aad.msal4j.ITokenCacheAccessAspect;
 import com.microsoft.aad.msal4j.ITokenCacheAccessContext;

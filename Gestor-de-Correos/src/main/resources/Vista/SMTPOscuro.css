@@ -1,49 +1,71 @@
 .modoOscuro,
 .modoOscuro .vistaSMTP {
-    -fx-background-color: #333333;
+     -fx-background-color: #333333; 
+  
 }
 
-.modoOscuro .Label {
-    -fx-text-fill: #000000;
+.modoOscuro .label {
+   /*-fx-text-fill: #000000; */
+   
+   -fx-text-fill: #ffffff;
+   
+   /*-fx-color: #ffffff; */
+   }
+
+.modoOscuro .check-box{
+	
+	-fx-text-fill: #ffffff;
+	/*-fx-background-color: #000000;*/ 
+	
+	
 }
 
-.modoOscuro .CheckBox,
-.modoOscuro .Button {
-    -fx-text-fill: #000000;
+.modoOscuro .button {
+   /* -fx-text-fill: #000000;*/
+   -fx-text-fill: #fff; 
     -fx-background-color: #555555;
 }
 
-.modoOscuro .CheckBox:selected,
-.modoOscuro .Button:default {
-    -fx-background-color: #aaaaaa;
+
+.modoOscuro .button:default {
+   /* -fx-background-color: #aaaaaa; */
+    -fx-background-color:#fff;
+    -fx-text-fill: #000;
 }
 
-.modoOscuro .TextField,
-.modoOscuro .PasswordField,
-.modoOscuro .TextArea {
-    -fx-text-fill: #000000;
-    -fx-background-color: #555555;
+.modoOscuro .text-field,
+.modoOscuro .password-field,
+.modoOscuro .text-area {
+    -fx-text-fill: #fff;
+    
+    
 }
-
-.modoOscuro .TextArea {
-    -fx-control-inner-background: #555555;
+.modoOscuro .text-area {
+    /*-fx-control-inner-background: #555555;*/
+    -fx-control-inner-background: #000;
 }
-
-.modoOscuro .Slider {
+.modoOscuro .slider {
     -fx-control-inner-background: #555555;
     -fx-accent: #ffffff;
 }
 
-.modoOscuro .TextField,
-.modoOscuro .Label {
-    -fx-text-fill: #ffffff;
-}
-
-.modoOscuro .TextField:focused {
+.modoOscuro .text-field {
     -fx-background-color: #000000;
 }
-
-.modoOscuro .Label {
-    -fx-background-color: #ffffff;
+.modoOscuro .choice-box, .modoOscuro .choice-box .context-menu{
+	 -fx-background-color: #000000;
 }
 
+.modoOscuro  #smtpVista{
+	-fx-background-color: #000000;
+	
+}
+
+#smtpVista .tab-label{
+	-fx-text-fill: #31F205;
+}
+
+#gmailVista .tab-label{
+	  -fx-text-fill: #ff0000;
+	 
+}
