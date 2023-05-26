@@ -27,7 +27,7 @@ public class appVista2 extends Application{
 		scene = new Scene(loader.load());
 			
 			appVista2.primaryStage=primaryStage;
-			primaryStage.setTitle("Enviar Email");
+			primaryStage.setTitle("Correos Goy");
 			primaryStage.setScene(scene);
 			primaryStage.getIcons().add(new Image("/images/emailLogo.png"));
 			primaryStage.show();

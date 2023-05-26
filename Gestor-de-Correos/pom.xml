@@ -14,6 +14,7 @@
 	<description>Applicacion Web de gestion de correos</description>
 	<properties>
 		<java.version>17</java.version>
+		<exec.mainClass>/Gestor-de-Correos/src/main/java/IesPerezMinik/Gestor/de/Correos/Lanzador.java</exec.mainClass>
 	</properties>
 	<dependencies>
 
@@ -79,19 +80,6 @@
 			<version>19</version>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
-			<version>15.0.1</version>
-		</dependency> 
-
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-fxml</artifactId>
-			<version>15.0.1</version>
-		</dependency>-->
-
-
 		<!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
 		<dependency>
 			<groupId>com.jfoenix</groupId>
@@ -106,11 +94,11 @@
 		</dependency>
 
 
-<dependency>
-    <groupId>org.mariadb.jdbc</groupId>
-    <artifactId>mariadb-java-client</artifactId>
-    <version>2.7.2</version>
-</dependency>
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>2.7.2</version>
+		</dependency>
 
 
 		<dependency>
@@ -160,6 +148,30 @@
 					</excludes>
 				</configuration>
 			</plugin>
+		
+			<plugin>
+				<groupId>io.github.fvarrui</groupId>
+				<artifactId>javapackager</artifactId>
+				<version>1.7.2</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>package</goal>
+						</goals>
+						<configuration>
+						<winConfig>
+							<icoFile>//assets//windows//MonkeyBros.ico</icoFile>
+						</winConfig>
+							<mainClass>${exec.mainClass}</mainClass>
+							<bundleJre>true</bundleJre>
+							<generateInstaller>true</generateInstaller>
+							<platform>auto</platform>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
 		</plugins>
 	</build>
 
