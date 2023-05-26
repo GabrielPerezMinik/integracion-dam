@@ -2,7 +2,6 @@ package IesPerezMinik.Gestor.de.Correos.afuturo;
 
 import com.microsoft.aad.msal4j.ITokenCacheAccessAspect;
 import com.microsoft.aad.msal4j.ITokenCacheAccessContext;
-import com.microsoft.aad.msal4j.PublicClientApplication;
 
 public class TokenPersintance implements ITokenCacheAccessAspect {
 		

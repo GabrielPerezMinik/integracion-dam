@@ -2,14 +2,12 @@ package IesPerezMinik.Gestor.de.Correos.ControllerInterfaz;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
-import IesPerezMinik.Gestor.de.Correos.appVista;
+import IesPerezMinik.Gestor.de.Correos.appVista2;
 import IesPerezMinik.Gestor.de.Correos.Api.GeneradorCuerpo;
-import IesPerezMinik.Gestor.de.Correos.Api.llamadaSMTP;
 import IesPerezMinik.Gestor.de.Correos.Controller.GMailer;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -23,7 +21,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
@@ -35,21 +32,11 @@ import javafx.scene.layout.GridPane;
 
 public class GmailController implements Initializable {
 
-	llamadaSMTP SMTP = new llamadaSMTP();
-
-	Properties pro = null;
+	RegistroController root;
+		
+	String correo;
 	
-	@FXML
-	private CheckBox checkGmail;
-
-	@FXML
-	private CheckBox checkMicro;
-
-	@FXML
-	private CheckBox checkStartlls;
-
-	@FXML
-	private CheckBox checkYahoo;
+	List<String> correos;
 
 	@FXML
 	private PasswordField contrasenaSmtp;
@@ -66,6 +53,9 @@ public class GmailController implements Initializable {
 	@FXML
 	private Label labelModo;
 
+	@FXML
+	private ImageView gmailLogo;
+	
 	@FXML
 	private Button salirButton;
 
@@ -102,7 +92,9 @@ public class GmailController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		
+		gmailLogo.setImage(new Image("/images/logo_gmail.png"));
+		
 		selectorTema.getItems().add("Casual");
 		selectorTema.getItems().add("Escuela");
 		selectorTema.getItems().add("Corporativo");
@@ -139,12 +131,19 @@ public class GmailController implements Initializable {
     void onEnviar(ActionEvent event) {
 
     	try {
-			new GMailer().sendMail(textAsunto.getText(), textCuerpo.getText(), textRemitente.getText(), new ArrayList<>());
+    		
+    		if(correos==null) {
+        		
+        		String[] nombres = textDestinatario.getText().split(",");
+                correos=List.of(nombres);
+        		
+        	}
+			new GMailer().sendMail(textAsunto.getText(), textCuerpo.getText(), textRemitente.getText(), correos);
 			
 			Alert alertCon = new Alert(AlertType.CONFIRMATION);
-			alertCon.initOwner(appVista.primaryStage);
+			alertCon.initOwner(appVista2.primaryStage);
 			alertCon.setHeaderText("Mensaje enviado con éxito a '"+  textDestinatario.getText()  +"'.");
-			alertCon.setGraphic(new ImageView(new Image("/images/okV2.png")));
+			alertCon.setGraphic(new ImageView(new Image("/images/ok.png")));
 			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
 			alertCon.show();
 			
@@ -152,9 +151,10 @@ public class GmailController implements Initializable {
 			
 			e.printStackTrace();
 			Alert alertErr = new Alert(AlertType.ERROR);
-			alertErr.initOwner(appVista.primaryStage);
+			alertErr.initOwner(appVista2.primaryStage);
 			alertErr.setHeaderText("No se pudo enviar el email.");
 			alertErr.setContentText("Complete todos los campos");
+			alertErr.setGraphic(new ImageView(new Image("/images/no.png")));
 			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
 			alertErr.show();
 		}
@@ -166,7 +166,7 @@ public class GmailController implements Initializable {
 
     	if(selectorTema.getValue()=="Casual") {
     		String[] nombres = textDestinatario.getText().split(",");
-            
+    		 correos=List.of(nombres);
     	       
             for (String nombre : nombres) {
                 System.out.println(nombre);
@@ -176,7 +176,7 @@ public class GmailController implements Initializable {
     	
     	if(selectorTema.getValue()=="Corporativo") {
     		String[] nombres = textDestinatario.getText().split(",");
-            
+    		 correos=List.of(nombres);
     	       
             for (String nombre : nombres) {
                 System.out.println(nombre);
@@ -185,19 +185,15 @@ public class GmailController implements Initializable {
     	}
     	
     	if(selectorTema.getValue()=="Escuela") {
-//    		String[] nombres = textDestinatario.getText().split(",");
-//            
-//    	       
-//            for (String nombre : nombres) {
-//                System.out.println(nombre);
-//                textCuerpo.setText(GeneradorCuerpo.Corporativo(nombre,textRemitente.getText());
-//            }
-    		System.out.println("Elegido escuela");
-    	}
-    	
-    	
-    	
-    	//textCuerpo.setText(GeneradorCuerpo.Corporativo(textDestinatario.getText(),textRemitente.getText()));
+    		String[] nombres = textDestinatario.getText().split(",");
+    		 correos=List.of(nombres);
+    		 
+            for (String nombre : nombres) {
+                System.out.println(nombre);
+                textCuerpo.setText(GeneradorCuerpo.Escuela(nombre,textRemitente.getText()));
+            }
+    		
+    	} 	
     	
     }
 
@@ -211,25 +207,21 @@ public class GmailController implements Initializable {
 		Optional<ButtonType> result=alertaConfi.showAndWait();
 		
 		if(result.get() == ButtonType.OK)
-			appVista.primaryStage.close();
+			appVista2.primaryStage.close();
+			appVista2.aplicationContext.close();
     	
     }
 
     @FXML
     void onVaciar(ActionEvent event) {
 
-    	contrasenaSmtp.setText("");
+    	//contrasenaSmtp.setText("");
+    	//textRemitente.setText("");
+    	
     	textDestinatario.setText("");
-    	textRemitente.setText("");
     	textAsunto.setText("");
     	textCuerpo.setText("");
-    	textPuerto.setText("");
-    	textServidor.setText("");
-    	contrasenaSmtp.setText("");
-    	checkGmail.setSelected(false);
-    	checkMicro.setSelected(false);
-    	checkYahoo.setSelected(false);
-    	checkStartlls.setSelected(false);
+    	
     	
     }
 
@@ -237,4 +229,12 @@ public class GmailController implements Initializable {
 		return vistaGmail;
 	}
 	
+    public void setCorreoGmail(String correo) {
+    	this.correo=correo;
+    	getCorreoGmail();
+    }
+    
+    public void getCorreoGmail() {
+    	textRemitente.setText(correo);
+    }
 }

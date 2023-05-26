@@ -33,7 +33,7 @@ import static javax.mail.Message.RecipientType.TO;
 public class GMailer {
 
     //private static final String TEST_EMAIL = "<your-gmail-address>";
-    private static final String TEST_EMAIL = "gabrielc2profe@gmail.com";
+    //private static final String TEST_EMAIL = "gabrielc2profe@gmail.com";
     private final Gmail service;
 
     public GMailer() throws Exception {
@@ -63,7 +63,13 @@ public class GMailer {
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
         email.setFrom(new InternetAddress(emailSender));
-        email.addRecipient(TO, new InternetAddress(TEST_EMAIL));
+        
+        InternetAddress[] addresses = new InternetAddress[emailreciver.size()];
+        for (int i = 0; i < emailreciver.size(); i++) {
+            addresses[i] = new InternetAddress(emailreciver.get(i));
+        }
+        
+        email.addRecipients(TO, addresses);
         email.setSubject(subject);
         email.setText(message);
 

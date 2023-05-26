@@ -16,6 +16,8 @@ public class RootController implements Initializable {
 	private smtpController smtpController= new smtpController();
 	private GmailController gmailController= new GmailController();
 
+	private String correo, pass;
+	
     @FXML
     private Tab gmailVista;
 
@@ -26,8 +28,12 @@ public class RootController implements Initializable {
     private TabPane vistaLogo;
 
 	
-    public RootController() throws IOException {
+    public RootController(String correo,String password) throws IOException {
 	
+    	setCorreo(correo);
+    	
+    	setPass(password);
+    	
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestorCorreoFormato.fxml"));
 		loader.setController(this);
 		loader.load();
@@ -37,6 +43,12 @@ public class RootController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		
+		
+		gmailController.setCorreoGmail(correo);
+		smtpController.setCorreoSMTP(correo);
+		smtpController.setPassSMTP(pass);
+	
 		smtpVista.setContent(smtpController.getVistaSMTP());
 		gmailVista.setContent(gmailController.getVistaGmail());
 	}
@@ -59,6 +71,14 @@ public class RootController implements Initializable {
 
 	public void setSmtpVista(Tab smtpVista) {
 		this.smtpVista = smtpVista;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 	
 	

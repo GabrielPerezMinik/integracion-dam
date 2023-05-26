@@ -29,7 +29,7 @@ import javafx.scene.layout.GridPane;
 public class Smtp implements Initializable{
 	
 	
-	AppSmtp app = new AppSmtp();
+	//AppSmtp app = new AppSmtp();
 
 	Task<Void> task;
 	
@@ -71,7 +71,7 @@ public class Smtp implements Initializable{
 	@FXML
 	void onCerrar(ActionEvent event) {
 
-		AppSmtp.primaryStage.close();
+//		AppSmtp.primaryStage.close();
 
 	}
 	
@@ -116,7 +116,7 @@ public class Smtp implements Initializable{
 		};
 		task.setOnSucceeded(e -> {
 			Alert alertCon = new Alert(AlertType.CONFIRMATION);
-			alertCon.initOwner(AppSmtp.primaryStage);
+//			alertCon.initOwner(AppSmtp.primaryStage);
 			alertCon.setHeaderText("Mensaje enviado con éxito a '"+  destinatarioTextField.getText()  +"'.");
 			alertCon.setGraphic(new ImageView(new Image("/images/cosita2.GIF")));
 			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
@@ -129,7 +129,7 @@ public class Smtp implements Initializable{
 		
 		task.setOnCancelled(e -> {
 			Alert alertErr = new Alert(AlertType.ERROR);
-			alertErr.initOwner(AppSmtp.primaryStage);
+//			alertErr.initOwner(AppSmtp.primaryStage);
 			alertErr.setHeaderText("No se pudo enviar el email.");
 			alertErr.setContentText("Invalid message supplied");
 			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
@@ -139,7 +139,7 @@ public class Smtp implements Initializable{
 		
 		task.setOnFailed(e -> {
 			Alert alertErr = new Alert(AlertType.ERROR);
-			alertErr.initOwner(AppSmtp.primaryStage);
+//			alertErr.initOwner(AppSmtp.primaryStage);
 			alertErr.setHeaderText("No se pudo enviar el email.");
 			alertErr.setContentText("Invalid message supplied");
 			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);

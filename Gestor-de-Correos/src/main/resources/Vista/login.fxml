@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.controlsfx.control.HyperlinkLabel?>
 
-<BorderPane fx:id="Vista" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="vista" stylesheets="@/Vista/SMTPOscuro.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IesPerezMinik.Gestor.de.Correos.ControllerInterfaz.LoginController">
    <center>
       <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -63,7 +63,7 @@
       <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="labelModo" text="Modo claro:" />
-            <Slider prefWidth="30.0" />
+            <Slider fx:id="modoOscuro" blockIncrement="100.0" majorTickUnit="100.0" max="1.0" minorTickCount="1" prefWidth="30.0" />
          </children>
       </HBox>
    </top>

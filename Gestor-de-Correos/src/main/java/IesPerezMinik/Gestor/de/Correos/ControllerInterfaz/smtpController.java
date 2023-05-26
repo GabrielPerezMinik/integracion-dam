@@ -2,11 +2,12 @@ package IesPerezMinik.Gestor.de.Correos.ControllerInterfaz;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
-import IesPerezMinik.Gestor.de.Correos.appVista;
+import IesPerezMinik.Gestor.de.Correos.appVista2;
 import IesPerezMinik.Gestor.de.Correos.Api.GeneradorCuerpo;
 import IesPerezMinik.Gestor.de.Correos.Api.llamadaSMTP;
 import javafx.beans.property.DoubleProperty;
@@ -17,10 +18,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Slider;
@@ -30,11 +34,15 @@ import javafx.scene.layout.GridPane;
 
 public class smtpController implements Initializable {
 
-	llamadaSMTP SMTP = new llamadaSMTP();
+	llamadaSMTP sMTP = new llamadaSMTP();
 
 	Properties pro = null;
 	
 	RootController root;
+	
+	String correo,pass;
+	
+	List<String> correos;
 	
 	@FXML
 	private CheckBox checkGmail;
@@ -100,7 +108,7 @@ public class smtpController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 		selectorTema.getItems().add("Casual");
-		selectorTema.getItems().add("Escuela");
+		selectorTema.getItems().add("Educativo");
 		selectorTema.getItems().add("Corporativo");
 		
 		selectorTema.setValue("elije un tema");
@@ -120,17 +128,9 @@ public class smtpController implements Initializable {
 
 
 	}
-
-	String css = this.getClass().getResource("/vista/SMTPOscuro.css").toString();
 	
 	void modoOscuroOn(double x) {
-
-		try {
-			root= new RootController();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+	
 		if (x == 1) {
 			labelModo.setText("Modo Oscuro:");
 			vistaSMTP.getStyleClass().add("modoOscuro");
@@ -166,14 +166,14 @@ public class smtpController implements Initializable {
 
 		
 		if (v == 'g') {
-			pro = SMTP.smtpGmail();
+			pro = sMTP.smtpGmail();
 		}
 
 		if (v == 'o') {
-			pro = SMTP.smtpMicrosoft();
+			pro = sMTP.smtpMicrosoft();
 		}
 		if (v == 'y') {
-			pro = SMTP.smtpYahoo();
+			pro = sMTP.smtpYahoo();
 		}
 
 		if (check.isSelected()) {
@@ -191,15 +191,46 @@ public class smtpController implements Initializable {
 
     @FXML
     void onEnviar(ActionEvent event) {
-
+    	
+    	if(correos==null) {
+    		
+    		String[] nombres = textDestinatario.getText().split(",");
+            correos=List.of(nombres);
+    		
+    	}
+    	
+    	try {
+			
+    		sMTP.EnviarMensaje(pro,textRemitente.getText(),contrasenaSmtp.getText(),correos,textAsunto.getText(),textCuerpo.getText());
+    		
+			Alert alertCon = new Alert(AlertType.CONFIRMATION);
+			alertCon.initOwner(appVista2.primaryStage);
+			alertCon.setHeaderText("Mensaje enviado con éxito a '"+  textDestinatario.getText()  +"'.");
+			alertCon.setGraphic(new ImageView(new Image("/images/ok.png")));
+			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
+			alertCon.show();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			Alert alertErr = new Alert(AlertType.ERROR);
+			alertErr.initOwner(appVista2.primaryStage);
+			alertErr.setHeaderText("No se pudo enviar el email.");
+			alertErr.setContentText("Complete todos los campos o reviselos");
+			alertErr.setGraphic(new ImageView(new Image("/images/no.png")));
+			enviarButton.setContentDisplay(ContentDisplay.TEXT_ONLY);
+			alertErr.show();
+		}
     }
 
     @FXML
     void onGenerar(ActionEvent event) {
 
+    	
+    	
     	if(selectorTema.getValue()=="Casual") {
     		String[] nombres = textDestinatario.getText().split(",");
-            
+           correos=List.of(nombres);
     	       
             for (String nombre : nombres) {
                 System.out.println(nombre);
@@ -209,7 +240,7 @@ public class smtpController implements Initializable {
     	
     	if(selectorTema.getValue()=="Corporativo") {
     		String[] nombres = textDestinatario.getText().split(",");
-            
+    		correos=List.of(nombres);
     	       
             for (String nombre : nombres) {
                 System.out.println(nombre);
@@ -217,20 +248,16 @@ public class smtpController implements Initializable {
             }
     	}
     	
-    	if(selectorTema.getValue()=="Escuela") {
+    	if(selectorTema.getValue()=="Educativo") {
     		String[] nombres = textDestinatario.getText().split(",");
-            
+    		correos=List.of(nombres);
     	       
             for (String nombre : nombres) {
                 System.out.println(nombre);
                 textCuerpo.setText(GeneradorCuerpo.Escuela(nombre,textRemitente.getText()));
             }
-    		//textCuerpo.setText(GeneradorCuerpo.Escuela(nombre,textRemitente.getText()));
+    		
     	}
-    	
-    	
-    	
-    	//textCuerpo.setText(GeneradorCuerpo.Corporativo(textDestinatario.getText(),textRemitente.getText()));
     	
     }
 
@@ -244,21 +271,22 @@ public class smtpController implements Initializable {
 		Optional<ButtonType> result=alertaConfi.showAndWait();
 		
 		if(result.get() == ButtonType.OK)
-			appVista.primaryStage.close();
+			appVista2.primaryStage.close();
+			appVista2.aplicationContext.close();
     	
     }
 
     @FXML
     void onVaciar(ActionEvent event) {
 
-    	contrasenaSmtp.setText("");
+    	//contrasenaSmtp.setText("");
+    	//textRemitente.setText("");
+    	
     	textDestinatario.setText("");
-    	textRemitente.setText("");
     	textAsunto.setText("");
     	textCuerpo.setText("");
     	textPuerto.setText("");
     	textServidor.setText("");
-    	contrasenaSmtp.setText("");
     	checkGmail.setSelected(false);
     	checkMicro.setSelected(false);
     	checkYahoo.setSelected(false);
@@ -270,4 +298,22 @@ public class smtpController implements Initializable {
 		return vistaSMTP;
 	}
 	
+    public void setCorreoSMTP(String correo) {
+    	this.correo=correo;
+    	getCorreoSMTP();
+    }
+    
+    public void getCorreoSMTP() {
+    	textRemitente.setText(correo);
+    }
+    
+    public void setPassSMTP(String pass) {
+    	this.pass=pass;
+    	getPassSMTP();
+    }
+    
+    public void getPassSMTP() {
+    	contrasenaSmtp.setText(pass);
+    }
+    
 }

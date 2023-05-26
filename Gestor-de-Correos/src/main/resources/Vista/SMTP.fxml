@@ -46,23 +46,40 @@
       <CheckBox fx:id="checkMicro" mnemonicParsing="false" onAction="#onCheckOu" text="Outlook/Hotmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <CheckBox fx:id="checkGmail" mnemonicParsing="false" onAction="#onCheckGma" text="Gmail" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <CheckBox fx:id="checkYahoo" mnemonicParsing="false" onAction="#onCheckYaho" text="Yahoo" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="4" GridPane.rowIndex="1" />
       <CheckBox fx:id="checkStartlls" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField fx:id="textServidor" promptText="Nombre o IP del servidor" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-      <TextField fx:id="textPuerto" promptText="Introduce el Puerto" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <TextField fx:id="textRemitente" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <TextField fx:id="textServidor" promptText="Nombre o IP del servidor" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
+      <TextField fx:id="textPuerto" promptText="Introduce el Puerto" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
+      <TextField fx:id="textRemitente" promptText="Introduce tu correo" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
       <Button fx:id="enviarButton" defaultButton="true" mnemonicParsing="false" onAction="#onEnviar" text="Enviar" GridPane.columnIndex="4" GridPane.rowIndex="3" />
       <Button fx:id="vaciarButton" mnemonicParsing="false" onAction="#onVaciar" text="Vaciar" GridPane.columnIndex="4" GridPane.rowIndex="4" />
       <Button fx:id="salirButton" mnemonicParsing="false" onAction="#onSalir" text="Salir" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-      <TextArea fx:id="textCuerpo" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="9">
+      <TextArea fx:id="textCuerpo" promptText="Introduce tu mensaje" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="9">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </TextArea>
       <Slider fx:id="modoOscuro" blockIncrement="100.0" majorTickUnit="100.0" max="1.0" minorTickCount="1" GridPane.columnIndex="4" />
-      <PasswordField fx:id="contrasenaSmtp" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <TextField fx:id="textDestinatario" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-      <TextField fx:id="textAsunto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+      <PasswordField fx:id="contrasenaSmtp" promptText="introduce tu contraseña" GridPane.columnIndex="3" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></PasswordField>
+      <TextField fx:id="textDestinatario" promptText="Introduce el email quien se dirige" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
+      <TextField fx:id="textAsunto" promptText="Introduce el asunto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
       <HBox alignment="TOP_RIGHT" GridPane.columnIndex="3">
          <children>
             <Label fx:id="labelModo" alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Modo claro:">
@@ -72,7 +89,6 @@
             </Label>
          </children>
       </HBox>
-      <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       <Button mnemonicParsing="false" onAction="#onGenerar" text="Generador de Mensajes" GridPane.columnIndex="4" GridPane.rowIndex="7" />
       <ChoiceBox fx:id="selectorTema" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
    </children>

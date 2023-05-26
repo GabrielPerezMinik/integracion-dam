@@ -15,7 +15,9 @@ public class Usuario {
 	private String usuario;
 	private String correo;
 	private String contrasena;
-
+	
+	public Usuario() {}
+	
 	public Usuario(String nombre,String usuario ,String correo, String contrasena) {
 		super();
 		this.nombre = nombre;

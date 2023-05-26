@@ -94,7 +94,7 @@ public class Gmailquickstart {
 	        System.out.printf("- %s\n", label.getName());
 	      }
 	    }
-	   new EnviarGEmail().sendEmail(user, user);
+	   //new EnviarGEmail().sendEmail(user, user);
 	   new CrearGEmail().createEmail(user, user, "Prueba", "Esta es la primera prueba de Gmail para ver si funciona");
 	   new BorradorGmail().createDraftMessage(user, user);
 	  }
